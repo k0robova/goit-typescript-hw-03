@@ -18,7 +18,7 @@ class Person {
 class House {
   door: boolean = false;
   key: Key;
-  tenants: Person[];
+  tenants: Person[] = [];
   constructor(key: Key) {
     this.key = key;
   }
@@ -34,7 +34,7 @@ class House {
 
 class MyHouse extends House {
   openDoor(key: Key): void {
-    if (this.key === key) {
+    if (this.key.getSignature() === key.getSignature()) {
       this.door = true;
     }
   }
